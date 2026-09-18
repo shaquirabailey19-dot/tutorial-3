@@ -31,3 +31,11 @@ def get_hottest():
 def online_devices():
     return [d for d in readings if d["online"]]
 
+
+@app.get("/devices/{name}")              # task 4: one device
+def one_device(name: str):
+    for d in readings:
+        if d["name"] == name:
+            return d
+    raise HTTPException(status_code=404, detail="No device called " + name)
+
