@@ -16,3 +16,8 @@ def hottest(devices):
 def average_temp(devices):
     total = sum(device["temp"] for device in devices)
     return total / len(devices) if devices else 0 
+
+
+@app.get ("/devices")
+def all_devices():
+    return readings
