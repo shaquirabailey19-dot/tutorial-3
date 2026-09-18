@@ -27,3 +27,7 @@ def all_devices():
 def get_hottest():
     return hottest(readings)
 
+@app.get("/devices/online")              # task 3: online
+def online_devices():
+    return [d for d in readings if d["online"]]
+
