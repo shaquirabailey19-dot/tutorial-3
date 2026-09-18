@@ -18,6 +18,12 @@ def average_temp(devices):
     return total / len(devices) if devices else 0 
 
 
-@app.get ("/devices")
+@app.get ("/devices")                # task 1: all devices
 def all_devices():
     return readings
+
+
+@app.get("/devices/hottest")             # task 2: hottest
+def get_hottest():
+    return hottest(readings)
+
